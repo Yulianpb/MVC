@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Db;
 using MVC.Models;
 
 namespace MVC.Controllers
@@ -7,21 +8,18 @@ namespace MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext appDbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext _dbContext)
         {
             _logger = logger;
+            appDbContext = _dbContext;
         }
-
         public IActionResult Index()
         {
-            int num1 = 10;
-            int num2 = 20;
-            ViewBag.Num1 = num1;
-            ViewBag.Num2 = num2;
-            return View(ViewBag);
+            var alumnos = appDbContext.Alumnos.ToList();
+            return View(alumnos);
         }
-
         public IActionResult Privacy()
         {
             return View();
