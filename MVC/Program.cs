@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using MVC.Db;
-using MVC.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

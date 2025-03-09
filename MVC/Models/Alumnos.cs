@@ -19,7 +19,6 @@ namespace MVC.Models
         public string Carnet {  get; set; }
         public int CantidadMaterias { get; set; }
         public int Ciclo { get; set; }
-        
         public DateTime FechaNacimiento { get; set; }
         [NotMapped]
         public string NombreCompleto { get; set; }
@@ -37,11 +36,11 @@ namespace MVC.Models
         #endregion Constructor
 
         #region Funciones
+        
         public bool EsMayorDeEdad()
         {
             return Edad > 18;
         }
         #endregion Funciones
-
     }
 }

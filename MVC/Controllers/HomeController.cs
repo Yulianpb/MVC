@@ -10,13 +10,15 @@ namespace MVC.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext appDbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext _dbContext)
         {
             _logger = logger;
+            appDbContext = _dbContext;
         }
         public IActionResult Index()
         {
-            return View();
+            var alumnos = appDbContext.Alumnos.ToList();
+            return View(alumnos);
         }
         public IActionResult Privacy()
         {

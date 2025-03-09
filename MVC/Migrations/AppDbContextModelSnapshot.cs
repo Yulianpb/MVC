@@ -48,9 +48,8 @@ namespace MVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Created")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Edad")
                         .HasColumnType("int");
@@ -58,8 +57,8 @@ namespace MVC.Migrations
                     b.Property<string>("EditeBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Edited")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("Edited")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
